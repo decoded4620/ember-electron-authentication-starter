@@ -1,0 +1,73 @@
+{{#if session.isAuthenticated}}
+	<h2>Congrats!</h2>
+	<p>You have successfully set up authentication</p>
+{{else}}
+	<div class="row">
+		<h3>Step 1 - Create an Auth0 Account</h3>
+		<ul>
+			<li>
+				<p>
+					<a href="https://auth0.com/" target="_blank">Signup for Auth0</a>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<h3>Step 2 Setup your Auth0 Client</h3>
+		<ul>
+			<li>
+				<p>
+					<a href="https://manage.auth0.com/#/" target="_blank">Manage
+						Your Auth0 Account</a>.
+				</p>
+			</li>
+			<li>
+				<p>
+					<a href="https://manage.auth0.com/#/clients" target="_blank">Add
+						a new Client to handle authorizations</a>
+				</p>
+			</li>
+		</ul>
+	</div>
+	<div class="row">
+		<h3>Step 3 Minor Changes</h3>
+		<ul>
+			<li>
+				<p>
+					Update
+					<code>auth-variables.js</code>
+					file, setting the
+					<code>AUTH0_CLIENT_ID</code>
+					and
+					<code>AUTH0_DOMAIN</code>
+					Options to match your new Client.
+				</p>
+			</li>
+			<li>
+				<p>
+					Find all instances of
+					<code>&quot;ember-electron-authentication-starter&quot;</code>
+					and replace with a different name (i.e.
+					<code>&quot;your-project-name&quot;</code>
+					)
+				</p>
+			</li>
+		</ul>
+	</div>
+	
+	<div class="row">
+		<h3>Step 4 - Build and Deploy!</h3>
+		<ul>
+			<li>
+				<p>
+					<code>ember electron:test</code>
+				</p>
+			</li>
+			<li>
+				<p>
+					<code>ember electron --server</code>
+				</p>
+			</li>
+		</ul>
+	</div>
+{{/if}}
