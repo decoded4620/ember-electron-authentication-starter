@@ -1,7 +1,6 @@
 # ember-electron-authentication-starter
 
-This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+After hours of toil and tweaking existing projects and tutorials to get proper Ember-Simple-Auth working with Ember-Authenticators within the Electron (Atom) Shell, I present to you... A Solution that works out of the box. Simply clone this repository, run the application, and follow the setup instructions until you're able to authenticate. Once you've done this, make your initial commit, and then customize away!
 
 ## Prerequisites
 
@@ -57,6 +56,13 @@ Make use of the many generators for code, try `ember help generate` for more det
 ### Deploying
 
 
+## Related Repositories
+* [ember-electron](https://github.com/felixrieseberg/ember-electron)
+* [ember-simple-auth](https://github.com/simplabs/ember-simple-auth)
+
+## Contributing
+Feel free to send me a pull request if you see an improvement that can be made for new users who need to get authentication up quickly!
+My goal is to keep this as simple as possible!
 
 ## Further Reading / Useful Links
 
