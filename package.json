@@ -9,15 +9,19 @@
   },
   "scripts": {
     "build": "ember build",
-    "start": "ember server",
-    "test": "ember test"
+    "start": "ember electron --server",
+    "test": "ember electron:test"
   },
-  "repository": "",
+  "repository": "http://github.com/decoded4620/ember-electron-authentication-starter.git",
   "engines": {
     "node": ">= 0.12.0"
   },
-  "author": "",
+  "author": "Decoded4620 <barcher4620@gmail.com> (http://github.com/decoded4620)",
   "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/decoded4620/ember-electron-authentication-starter/issues"
+  },
+  "homepage": "https://github.com/decoded4620/ember-electron-authentication-starter#readme",
   "devDependencies": {
     "bootstrap": "3.3.7",
     "broccoli-asset-rev": "^2.4.5",
