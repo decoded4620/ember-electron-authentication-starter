@@ -13,17 +13,55 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-    Auth0: {
-        clientId: auth0.AUTH0_CLIENT_ID,
-        domain: auth0.AUTH0_DOMAIN,
-        authenticator: 'authenticator:auth0',
-        lockOptions: {
-    		auth: {
-    			params: {scope: 'openid email'},
-    			redirect: false,
-    			sso: false
-    		}
-    	}
+    Auth0 : {
+		clientId : auth0.AUTH0_CLIENT_ID,
+		domain : auth0.AUTH0_DOMAIN,
+		authenticator : 'authenticator:auth0',
+		lockOptions : {
+			auth : {
+				params : {
+					scope : 'openid email'
+				},
+				redirect : false,
+				sso : false
+			},
+			allowForgotPassword: true,
+			allowSignUp: true,
+			loginAfterSignup: true,
+			mustAcceptTerms: false,
+			initialScreen: 'signUp', // login | signUp | forgotPassword
+			allowedConnections: null,
+			socialButtonStyle: 'small', // small | big
+			theme : {
+				logo : './default_icon.jpg',
+				primaryColor : '#33aa33'
+			},
+			languageDictionary : {
+				emailInputPlaceholder : "your@email.com",
+				title : "Log In / Sign Up"
+			},
+			avatar : {
+				url : function(email, cb) {
+					// Obtain the avatar url for the email input by the
+					// user, Lock
+					// will preload the image before displaying it.
+					// Note that in case of an error you call cb with the
+					// error in
+					// the first arg instead of `null`.
+					var url = obtainAvatarUrl(email);
+					cb(null, url);
+				},
+				displayName : function(email, cb) {
+					// Obtain the display name for the email input by the
+					// user.
+					// Note that in case of an error you call cb with the
+					// error in
+					// the first arg instead of `null`.
+					var displayName = obtainDisplayName(email);
+					cb(null, displayName);
+				}
+			}
+		}
       },
     APP: {
       // Here you can pass flags/options to your application instance
