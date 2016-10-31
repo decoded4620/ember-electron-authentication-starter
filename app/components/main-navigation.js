@@ -13,8 +13,7 @@ export default Ember.Component.extend({
     },
 
     logout() {
-      this.get('session').invalidate();
-      //this.sendAction('onLogout');
+    	this.sendAction('onLogout');
     }
   }
 });

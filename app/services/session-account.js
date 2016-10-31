@@ -8,24 +8,49 @@ export default Ember.Service.extend({
   getAccount(){
 	  return this.get('account');
   },
-  loadCurrentUser() {
+  logoutCurrentUser(){
+	  console.log("logoutCurrentUser()");
 	  return new RSVP.Promise((resolve, reject) => {
 	      var sessionData = this.get('session.data');
 
 	      if(sessionData){
 	    	  const sessionAuth = sessionData.authenticated;
-              
+	    	  const token = localStorage.getItem('token');
+	    	  
+	    	  if(!Ember.isEmpty(token)){
+	    		  localStorage.setItem('token', undefined);
+	    		  localStorage.setItem('profile', undefined);
+	    		  
+	    		  this.set('account', undefined);
+	    	  }
+	      }
+          
+	      this.get('session').invalidate();
+	      resolve();
+    });
+  },
+  
+  loadCurrentUser() {
+	  console.log("loadCurrentUser()");
+	  return new RSVP.Promise((resolve, reject) => {
+	      var sessionData = this.get('session.data');
+
+	      if(sessionData){
+	    	  const sessionAuth = sessionData.authenticated;
 	    	  const token = localStorage.getItem('token');
 	    	  
 	    	  if(!Ember.isEmpty(token)){	    		  
 		    	  if(sessionAuth.idToken === token || sessionAuth.idToken === undefined){  
 		    		  const accountData = localStorage.getItem('profile');
-		    		  const account = accountData ? JSON.parse(accountData) : null;
+		    		  
+		    		  console.log("accountData: " + accountData);
+		    		  
+		    		  const account = (accountData !== 'undefined' && accountData !== undefined) ? JSON.parse(accountData) : null;
 		    		  if(account){
 		    			  this.set('account', account);
 		    		  }
 		    		  else{
-		    			  reject("Account Doesn't Exist: " + token);
+		    			  resolve(null);
 		    		  }
 		    	  }
 		    	  else{

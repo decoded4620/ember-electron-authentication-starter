@@ -28,13 +28,16 @@ module.exports = function(environment) {
 			allowForgotPassword: true,
 			allowSignUp: true,
 			loginAfterSignup: true,
+			rememberLastLogin: false,
 			mustAcceptTerms: false,
 			initialScreen: 'signUp', // login | signUp | forgotPassword
 			allowedConnections: null,
 			socialButtonStyle: 'small', // small | big
+			popupOptions: { width: 300, height: 500, left: 200, top: 300 },
 			theme : {
 				logo : './default_icon.jpg',
-				primaryColor : '#33aa33'
+				primaryColor : '#33aa33',
+				labeledSubmitButton:false
 			},
 			languageDictionary : {
 				emailInputPlaceholder : "your@email.com",
@@ -62,16 +65,16 @@ module.exports = function(environment) {
 				}
 			}
 		}
-      },
-    APP: {
-      // Here you can pass flags/options to your application instance
-      // when it is created
-    }
+	  },
+	  APP: {
+		  // Here you can pass flags/options to your application instance
+		  // when it is created
+	  }
   };
 
   if (environment === 'development') {
 //     ENV.APP.LOG_RESOLVER = true;
-//     ENV.APP.LOG_ACTIVE_GENERATION = true;
+     ENV.APP.LOG_ACTIVE_GENERATION = true;
 //     ENV.APP.LOG_TRANSITIONS = true;
 //     ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
 //     ENV.APP.LOG_VIEW_LOOKUPS = true;
