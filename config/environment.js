@@ -17,6 +17,7 @@ module.exports = function(environment) {
 		clientId : auth0.AUTH0_CLIENT_ID,
 		domain : auth0.AUTH0_DOMAIN,
 		authenticator : 'authenticator:auth0',
+		logoutUrl:"https://" + auth0.AUTH0_DOMAIN + "/v2/logout?federated",
 		lockOptions : {
 			auth : {
 				params : {
@@ -33,7 +34,7 @@ module.exports = function(environment) {
 			initialScreen: 'signUp', // login | signUp | forgotPassword
 			allowedConnections: null,
 			socialButtonStyle: 'small', // small | big
-			popupOptions: { width: 300, height: 500, left: 200, top: 300 },
+			popupOptions: { width: 550, height: 700 },
 			theme : {
 				logo : './default_icon.jpg',
 				primaryColor : '#33aa33',

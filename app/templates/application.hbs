@@ -1,6 +1,10 @@
 {{main-navigation
-  onLogout='transitionToHomeRoute'
-  onLogin='transitionToLoginRoute'
+  onLogout='goHome'
+  onLogin='goLogin'
+  onRemember='remember'
+  rememberMe=rememberMe
+  isAuthenticated=(readonly isAuthenticated)
+  account=account
 }}
 <div class='container'>
   {{outlet}}

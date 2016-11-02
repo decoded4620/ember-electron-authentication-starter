@@ -9,17 +9,20 @@
       {{#link-to 'protected' tagName='li'}}
         <a href="#">Protected Page</a>
       {{/link-to}}
-      {{#if session.isAuthenticated}}
+      {{#if isAuthenticated}}
         {{#link-to 'user-profile' tagName='li'}}
           <a href="#">Profile</a>
         {{/link-to}}
       {{/if}}
     </ul>
     {{! display logout button when the session is authenticated, login button otherwise }}
-    {{#if session.isAuthenticated}}
+    {{#if isAuthenticated}}
       <a {{action 'logout'}} class="btn btn-danger navbar-btn pull-right">Logout</a>
-      {{#if sessionAccount.account}}
-        <p class="navbar-text pull-right">Signed in as {{sessionAccount.account.name}}</p>
+      <div class="checkbox navbar-text pull-right">
+  	  	<label><input id="rememberMe" type="checkbox" value="" checked={{rememberMe}} {{action "toggleRemember" on="change"}}>Remember Me&nbsp;&nbsp;&nbsp;&nbsp;</label>
+	  </div>
+      {{#if account}}
+        <p class="navbar-text pull-right">Signed in as {{account.name}}</p>
       {{/if}}
     {{else}}
       <a {{action 'login'}} class="btn btn-success navbar-btn pull-right">Login</a>

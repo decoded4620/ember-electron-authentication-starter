@@ -1,19 +1,39 @@
+/*global $*/
 import Ember from 'ember';
 
-const { service } = Ember.inject;
-
 export default Ember.Component.extend({
-  session:        service('session'),
-  sessionAccount: service('session-account'),
-
+ /**
+  * Model Property to update the main nav remember-me checkbox.
+  */
+  rememberMe:		false,
+  
+  /**
+   * Model Property to update the ui
+   * checkbox and logout button
+   */
+  isAuthenticated:	false,
+  
+  /**
+   * Component Actions
+   */
   actions: {
-
-    login() {
-      this.sendAction('onLogin');
-    },
-
-    logout() {
-    	this.sendAction('onLogout');
-    }
+	  /**
+	   * Action: Toggle Remember Value
+	   */
+	  toggleRemember(){
+		  this.sendAction('onRemember', $("#rememberMe").is(':checked'));
+	  },
+	  /**
+	   * Action: Log the user in
+	   */
+	  login() {
+		  this.sendAction('onLogin');
+	  },
+	  /**
+	   * Action: Log the user out
+	   */
+	  logout() {
+		  this.sendAction('onLogout');
+	  }
   }
 });

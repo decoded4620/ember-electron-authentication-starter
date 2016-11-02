@@ -9,7 +9,6 @@ const Router = Ember.Router.extend({
 Router.map(function() {
     this.route('auth-error');
     this.route('protected');
-    this.route('login');
     this.route('user-profile');
 });
 
